@@ -1,0 +1,22 @@
+# arquivos de trabalho (não vão para o site)
+shots/
+originais/
+assets/
+.taste-skill/
+index-*.html
+proposta-*.html
+propostas-briefing.md
+teste-*.html
+_*.html
+.deploy-files.txt
+
+# imagens antigas ou não usadas
+img/*.jpg
+img/v3/
+img/resultados/p3-*
+img/resultados/*.jpg
+
+# sistema
+.vercel
+.DS_Store
+Thumbs.db
