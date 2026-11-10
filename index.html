@@ -19,13 +19,8 @@
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  var _ok = null; try { _ok = localStorage.getItem('cookie-consent'); } catch (e) {}
   gtag('consent', 'default', {
-    analytics_storage: _ok === 'granted' ? 'granted' : 'denied',
-    ad_storage: _ok === 'granted' ? 'granted' : 'denied',
-    ad_user_data: _ok === 'granted' ? 'granted' : 'denied',
-    ad_personalization: _ok === 'granted' ? 'granted' : 'denied',
-    wait_for_update: 500
+    analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted'
   });
   gtag('js', new Date());
   gtag('config', 'G-PNE8PF47R5');
@@ -744,17 +739,11 @@ footer .lg-txt small{color:#aeb9cf}
     <div><h4>Consultório</h4><address>R. Sen. Cândido Ferraz, 1250, sala 506<br>The Office Tower · Jóquei<br>Teresina-PI</address></div>
     <div><h4>Contato</h4><a data-wa href="https://wa.me/5586988000910">WhatsApp (86) 98800-0910</a><br><a href="https://www.instagram.com/drandreylima/" target="_blank" rel="noopener">Instagram @drandreylima</a><br><a href="https://maps.app.goo.gl/oPGxmBu9Los73wYk7" target="_blank" rel="noopener">Avaliações no Google</a></div>
   </div>
-  <div class="legalbar"><div class="wrap"><span>© 2026 Dr. Andrey Lima · Médico · CRM-PI 4742 · RQE 2630 · RQE 2068</span><span>Conteúdo informativo. Não substitui a consulta e não garante resultado.</span></div></div>
+  <div class="legalbar"><div class="wrap"><span>© 2026 Dr. Andrey Lima · Médico · CRM-PI 4742 · RQE 2630 · RQE 2068</span><span>Conteúdo informativo. Não substitui a consulta e não garante resultado. Este site usa cookies do Google para medir acessos e anúncios.</span></div></div>
 </footer>
 
 <a class="wa-float" data-wa href="https://wa.me/5586988000910" aria-label="Agendar pelo WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg></a>
 <div class="mbar"><a class="btn" data-wa href="https://wa.me/5586988000910"><svg aria-hidden="true"><use href="#i-wa"/></svg>Agendar pelo WhatsApp</a></div>
-
-<div class="cookie" id="cookie" role="dialog" aria-label="Aviso de cookies" hidden>
-  <p>Usamos cookies do Google para medir o uso do site e a eficácia dos nossos anúncios. Você aceita?</p>
-  <button type="button" class="no" data-consent="denied">Recusar</button>
-  <button type="button" class="ok" data-consent="granted">Aceitar</button>
-</div>
 
 <script>
 (() => {
@@ -777,15 +766,6 @@ footer .lg-txt small{color:#aeb9cf}
 
 
   // ===== Google Analytics: consentimento e eventos =====
-  const ck = document.getElementById('cookie');
-  let saved = null; try { saved = localStorage.getItem('cookie-consent'); } catch (e) {}
-  if (!saved) ck.hidden = false;
-  ck.querySelectorAll('[data-consent]').forEach(b => b.addEventListener('click', () => {
-    const v = b.dataset.consent;
-    try { localStorage.setItem('cookie-consent', v); } catch (e) {}
-    gtag('consent', 'update', {analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v});
-    ck.hidden = true;
-  }));
   const where = el => {
     if (el.closest('.top')) return 'menu';
     if (el.closest('.mbar')) return 'barra_celular';
