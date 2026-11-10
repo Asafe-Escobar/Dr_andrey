@@ -22,7 +22,9 @@
   var _ok = null; try { _ok = localStorage.getItem('cookie-consent'); } catch (e) {}
   gtag('consent', 'default', {
     analytics_storage: _ok === 'granted' ? 'granted' : 'denied',
-    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied',
+    ad_storage: _ok === 'granted' ? 'granted' : 'denied',
+    ad_user_data: _ok === 'granted' ? 'granted' : 'denied',
+    ad_personalization: _ok === 'granted' ? 'granted' : 'denied',
     wait_for_update: 500
   });
   gtag('js', new Date());
@@ -749,7 +751,7 @@ footer .lg-txt small{color:#aeb9cf}
 <div class="mbar"><a class="btn" data-wa href="https://wa.me/5586988000910"><svg aria-hidden="true"><use href="#i-wa"/></svg>Agendar pelo WhatsApp</a></div>
 
 <div class="cookie" id="cookie" role="dialog" aria-label="Aviso de cookies" hidden>
-  <p>Usamos cookies do Google Analytics para entender como o site é usado e melhorar o atendimento. Você aceita?</p>
+  <p>Usamos cookies do Google para medir o uso do site e a eficácia dos nossos anúncios. Você aceita?</p>
   <button type="button" class="no" data-consent="denied">Recusar</button>
   <button type="button" class="ok" data-consent="granted">Aceitar</button>
 </div>
@@ -781,7 +783,7 @@ footer .lg-txt small{color:#aeb9cf}
   ck.querySelectorAll('[data-consent]').forEach(b => b.addEventListener('click', () => {
     const v = b.dataset.consent;
     try { localStorage.setItem('cookie-consent', v); } catch (e) {}
-    gtag('consent', 'update', {analytics_storage: v});
+    gtag('consent', 'update', {analytics_storage: v, ad_storage: v, ad_user_data: v, ad_personalization: v});
     ck.hidden = true;
   }));
   const where = el => {
