@@ -775,8 +775,7 @@ footer .lg-txt small{color:#aeb9cf}
   };
   document.querySelectorAll('[data-wa]').forEach(a => a.addEventListener('click', () => {
     const loc = where(a);
-    gtag('event', 'whatsapp_click', {button_location: loc, button_text: (a.textContent || '').trim().slice(0, 60)});
-    gtag('event', 'generate_lead', {method: 'whatsapp', button_location: loc});
+    gtag('event', 'click_whatsapp', {button_location: loc, button_text: (a.textContent || '').trim().slice(0, 60)});
   }));
   document.querySelectorAll('a[href*="instagram.com"]').forEach(a => a.addEventListener('click', () => gtag('event', 'instagram_click', {button_location: where(a)})));
   document.querySelectorAll('a[href*="maps.app.goo.gl"]').forEach(a => a.addEventListener('click', () => gtag('event', 'reviews_click', {button_location: where(a)})));
